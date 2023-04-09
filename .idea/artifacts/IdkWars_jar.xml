@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="IdkWars:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/IdkWars_jar</output-path>
+    <root id="archive" name="IdkWars.jar">
+      <element id="module-output" name="IdkWars" />
+    </root>
+  </artifact>
+</component>
