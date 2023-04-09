@@ -1,0 +1,7 @@
+name: IdkWars
+main: fr.cyberdelta88.IdkWars.Main
+author: cyberdelta88
+version: 0.1
+commands:
+  start:
+  team:

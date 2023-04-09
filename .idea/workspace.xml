@@ -1,27 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="8aae9d01-d769-4e7b-9d73-aad72fec970b" name="Changes" comment="" />
+    <list default="true" id="8aae9d01-d769-4e7b-9d73-aad72fec970b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/IdkWars_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/IdkWars_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdkWars.iml" beforeDir="false" afterPath="$PROJECT_DIR$/IdkWars.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ressources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ressources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/commands/Cmdstart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/commands/Cmdstart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/commands/Cmdteam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/commands/Cmdteam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/listeners/Clickguievent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/listeners/Clickguievent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/listeners/Deathevent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/listeners/Deathevent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/listeners/GivePerm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/listeners/GivePerm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/listeners/Scoreboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/listeners/Scoreboard.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2NmwTfAuX8QosK0ph6E0TPZSihe" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/cfume/Serveur Minecraft test/plugins&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="fr.cyberdelta88.IdkWars.commands" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
