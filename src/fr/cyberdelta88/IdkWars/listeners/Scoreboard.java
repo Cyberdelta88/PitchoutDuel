@@ -22,7 +22,7 @@ public class Scoreboard implements Listener {
     public void onPlayerJoinTeam(PlayerTeleportEvent e) {
         createScoreboard(e.getPlayer());
     }
-
+"-"
 
     @EventHandler
     public void onPlayerDeath(EntityDamageEvent e) {
@@ -31,7 +31,7 @@ public class Scoreboard implements Listener {
             Player p = (Player) e.getEntity();
 
             if (e.getCause().equals(EntityDamageEvent.DamageCause.LAVA)) {
-                org.bukkit.scoreboard.Scoreboard sb = Bukkit.getScoreboardManager().getMainScoreboard();
+                org.bukkit.scoreboard.Scoreboard sb = p.getScoreboard();
                 Team blue = sb.getTeam("blue");
                 Team red = sb.getTeam("red");
 
@@ -62,6 +62,14 @@ public class Scoreboard implements Listener {
     public void createScoreboard(Player p) {
         ScoreboardManager manager = Bukkit.getScoreboardManager();
         org.bukkit.scoreboard.Scoreboard board = manager.getNewScoreboard();
+
+        Team blue = board.registerNewTeam("blue");
+        blue.setPrefix(ChatColor.BLUE + "xssx");
+
+        Team red = board.registerNewTeam("red");
+        red.setPrefix(ChatColor.RED + "sxxs");
+
+
         Objective obj = board.registerNewObjective("Stats", "Dummy;");
         obj.setDisplayName(ChatColor.LIGHT_PURPLE + "Pitchout Duel");
 
@@ -96,9 +104,12 @@ public class Scoreboard implements Listener {
 
                 org.bukkit.scoreboard.Scoreboard board = online.getScoreboard();
 
-                board.resetScores(online);
 
                 Score s3 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + pl.getConfig().getInt("redscore") + "/8" );
+
+
+                board.resetScores(online);
+                board.resetScores(ChatColor.RED + "Red : " + ChatColor.WHITE + pl.getConfig().getInt("redscore") + "/8");
 
                 s3.setScore(3);
                 online.setScoreboard(board);
@@ -107,9 +118,11 @@ public class Scoreboard implements Listener {
 
                 org.bukkit.scoreboard.Scoreboard board = online.getScoreboard();
 
-                board.resetScores(online);
 
                 Score s3 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + pl.getConfig().getInt("redscore") + "/8" );
+
+                board.resetScores(online);
+                board.resetScores(ChatColor.RED + "Red : " + ChatColor.WHITE + pl.getConfig().getInt("redscore") + "/8" );
 
                 s3.setScore(3);
                 online.setScoreboard(board);
@@ -128,10 +141,13 @@ public class Scoreboard implements Listener {
 
                 org.bukkit.scoreboard.Scoreboard board = online.getScoreboard();
 
-                board.resetScores(online);
 
                 Score s4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + pl.getConfig().getInt("bluescore") + "/8" );
                 s4.setScore(4);
+
+                board.resetScores(online);
+                board.resetScores(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + pl.getConfig().getInt("bluescore") + "/8" );
+
                 online.setScoreboard(board);
             }
 
@@ -141,10 +157,12 @@ public class Scoreboard implements Listener {
             org.bukkit.scoreboard.Scoreboard board = online.getScoreboard();
 
             board.resetScores(online);
+            board.resetScores(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + pl.getConfig().getInt("bluescore") + "/8" );
 
             Score s4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + pl.getConfig().getInt("bluescore") + "/8" );
 
             s4.setScore(4);
+
             online.setScoreboard(board);
         }
 

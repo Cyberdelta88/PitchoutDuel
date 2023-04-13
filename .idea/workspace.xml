@@ -5,17 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8aae9d01-d769-4e7b-9d73-aad72fec970b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/IdkWars_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/IdkWars_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IdkWars.iml" beforeDir="false" afterPath="$PROJECT_DIR$/IdkWars.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ressources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ressources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/plugin.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/commands/Cmdstart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/commands/Cmdstart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/commands/Cmdteam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/commands/Cmdteam.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/listeners/Clickguievent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/listeners/Clickguievent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/listeners/Deathevent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/listeners/Deathevent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/listeners/GivePerm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/listeners/GivePerm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/listeners/Scoreboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/listeners/Scoreboard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

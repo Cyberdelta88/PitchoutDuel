@@ -38,6 +38,8 @@ public class Deathevent implements Listener {
                         if (o != null) {
                             o.teleport(loc_blue);
                             o.setHealth(20);
+                            o.setScoreboard(sb);
+                            blue.addPlayer(o);
                             o.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 500, 1));
                         }
 
@@ -50,6 +52,8 @@ public class Deathevent implements Listener {
                         if (o != null) {
                             o.teleport(loc_red);
                             o.setHealth(20);
+                            o.setScoreboard(sb);
+                            red.addPlayer(o);
                             o.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 500, 1));
                         }
                     }

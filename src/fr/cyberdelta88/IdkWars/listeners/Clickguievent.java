@@ -19,16 +19,6 @@ public class Clickguievent implements Listener {
 
 
         Scoreboard sb = p.getScoreboard();
-        if (sb.getTeams() == null) {
-            Team blue = sb.registerNewTeam("blue");
-            blue.setPrefix(ChatColor.BLUE + "xssx");
-
-            Team red = sb.registerNewTeam("red");
-            red.setPrefix(ChatColor.RED + "sxxs");
-        } else {
-            Team blue = sb.getTeam("blue");
-            Team red = sb.getTeam("red");
-        }
 
 
         if (e.getClickedInventory().getName().equalsIgnoreCase(ChatColor.GOLD + "TeamSelector")) {
