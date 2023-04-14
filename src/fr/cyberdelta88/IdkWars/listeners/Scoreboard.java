@@ -10,7 +10,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scoreboard.*;
 
@@ -18,11 +17,6 @@ public class Scoreboard implements Listener {
 
     Plugin pl = Main.getPlugin(Main.class);
 
-    @EventHandler
-    public void onPlayerJoinTeam(PlayerTeleportEvent e) {
-        createScoreboard(e.getPlayer());
-    }
-"-"
 
     @EventHandler
     public void onPlayerDeath(EntityDamageEvent e) {
@@ -100,32 +94,27 @@ public class Scoreboard implements Listener {
         for (Player online : Bukkit.getOnlinePlayers()) {
 
             if (pl.getConfig().getInt("redscore") >= 7) {
-                pl.getConfig().set("redscore", pl.getConfig().getInt("redscore") + 1);
 
                 org.bukkit.scoreboard.Scoreboard board = online.getScoreboard();
+                Score pres3 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + pl.getConfig().getInt("redscore") + "/8" );
+                board.resetScores(pres3.getEntry());
+
+                pl.getConfig().set("redscore", pl.getConfig().getInt("redscore") + 1);
 
 
                 Score s3 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + pl.getConfig().getInt("redscore") + "/8" );
 
-
-                board.resetScores(online);
-                board.resetScores(ChatColor.RED + "Red : " + ChatColor.WHITE + pl.getConfig().getInt("redscore") + "/8");
-
                 s3.setScore(3);
-                online.setScoreboard(board);
             } else {
-                pl.getConfig().set("redscore", pl.getConfig().getInt("redscore") + 1);
 
                 org.bukkit.scoreboard.Scoreboard board = online.getScoreboard();
+                Score pres3 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + pl.getConfig().getInt("redscore") + "/8" );
+                board.resetScores(pres3.getEntry());
 
+                pl.getConfig().set("redscore", pl.getConfig().getInt("redscore") + 1);
 
                 Score s3 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + pl.getConfig().getInt("redscore") + "/8" );
-
-                board.resetScores(online);
-                board.resetScores(ChatColor.RED + "Red : " + ChatColor.WHITE + pl.getConfig().getInt("redscore") + "/8" );
-
                 s3.setScore(3);
-                online.setScoreboard(board);
             }
 
 
@@ -137,33 +126,32 @@ public class Scoreboard implements Listener {
         for (Player online : Bukkit.getOnlinePlayers()) {
 
             if (pl.getConfig().getInt("bluescore") >= 7) {
+                org.bukkit.scoreboard.Scoreboard board = online.getScoreboard();
+                Score pres4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + pl.getConfig().getInt("bluescore") + "/8" );
+                board.resetScores(pres4.getEntry());
+
                 pl.getConfig().set("bluescore", pl.getConfig().getInt("bluescore") + 1);
 
-                org.bukkit.scoreboard.Scoreboard board = online.getScoreboard();
+                Score s4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + pl.getConfig().getInt("bluescore") + "/8" );
 
+                s4.setScore(4);
+            } else {
+                org.bukkit.scoreboard.Scoreboard board = online.getScoreboard();
+                Score pres4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + pl.getConfig().getInt("bluescore") + "/8" );
+
+                board.resetScores(pres4.getEntry());
+
+
+                pl.getConfig().set("bluescore", pl.getConfig().getInt("bluescore") + 1);
 
                 Score s4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + pl.getConfig().getInt("bluescore") + "/8" );
+
+
                 s4.setScore(4);
-
-                board.resetScores(online);
-                board.resetScores(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + pl.getConfig().getInt("bluescore") + "/8" );
-
-                online.setScoreboard(board);
             }
 
-            pl.getConfig().set("bluescore", pl.getConfig().getInt("bluescore") + 1);
 
 
-            org.bukkit.scoreboard.Scoreboard board = online.getScoreboard();
-
-            board.resetScores(online);
-            board.resetScores(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + pl.getConfig().getInt("bluescore") + "/8" );
-
-            Score s4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + pl.getConfig().getInt("bluescore") + "/8" );
-
-            s4.setScore(4);
-
-            online.setScoreboard(board);
         }
 
     }
