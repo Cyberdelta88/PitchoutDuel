@@ -32,7 +32,7 @@ public class Deathevent implements Listener {
 
             if (e.getCause().equals(EntityDamageEvent.DamageCause.LAVA)){
                 if (blue != null) {
-                    Location loc_blue = new Location(p.getWorld(), -1115, 137, -280);
+                    Location loc_blue = new Location(p.getWorld(),  -233, 105, 85);
                     for (String entry : blue.getEntries()) { //non-player entities can be on teams
                         Player o = Bukkit.getPlayer(entry);
                         if (o != null) {
@@ -46,7 +46,7 @@ public class Deathevent implements Listener {
                     }
                 }
                 if (red != null) {
-                    Location loc_red = new Location(p.getWorld(), -1115, 137, -269);
+                    Location loc_red = new Location(p.getWorld(), -233, 105, 106);
                     for (String entry : red.getEntries()) {
                         Player o = Bukkit.getPlayer(entry);
                         if (o != null) {

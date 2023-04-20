@@ -1,8 +1,12 @@
 package fr.cyberdelta88.IdkWars.listeners;
 
 import fr.cyberdelta88.IdkWars.Main;
+import net.minecraft.server.v1_8_R3.IChatBaseComponent;
+import net.minecraft.server.v1_8_R3.PacketPlayOutTitle;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -11,6 +15,7 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.*;
 
 public class Scoreboard implements Listener {
@@ -50,12 +55,12 @@ public class Scoreboard implements Listener {
 
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent e) {
-        updateScoreboardjoin();
+        updateScoreboardleave();
     }
 
     public void createScoreboard(Player p) {
         ScoreboardManager manager = Bukkit.getScoreboardManager();
-        org.bukkit.scoreboard.Scoreboard board = manager.getNewScoreboard();
+        org.bukkit.scoreboard.Scoreboard board = manager.getMainScoreboard();
 
         Team blue = board.registerNewTeam("blue");
         blue.setPrefix(ChatColor.BLUE + "xssx");
@@ -85,10 +90,26 @@ public class Scoreboard implements Listener {
 
     public void updateScoreboardjoin() {
         for (Player online : Bukkit.getOnlinePlayers()) {
+            org.bukkit.scoreboard.Scoreboard board = online.getScoreboard();
+            Score prescore = board.getObjective(DisplaySlot.SIDEBAR).getScore("Nombre de joueurs : " + Bukkit.getOnlinePlayers().size() - 1);
+            board.resetScores(prescore.getEntry());
+
             Score score = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore("Nombre de joueurs : " + Bukkit.getOnlinePlayers().size());
             score.setScore(1);
         }
     }
+
+    public void updateScoreboardleave() {
+        for (Player online : Bukkit.getOnlinePlayers()) {
+            org.bukkit.scoreboard.Scoreboard board = online.getScoreboard();
+            Score prescore = board.getObjective(DisplaySlot.SIDEBAR).getScore("Nombre de joueurs : " + Bukkit.getOnlinePlayers().size() + 1);
+            board.resetScores(prescore.getEntry());
+
+            Score score = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore("Nombre de joueurs : " + Bukkit.getOnlinePlayers().size());
+            score.setScore(1);
+        }
+    }
+
 
     public void uptateScoreboardgamered() {
         for (Player online : Bukkit.getOnlinePlayers()) {
@@ -99,19 +120,87 @@ public class Scoreboard implements Listener {
                 Score pres3 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + pl.getConfig().getInt("redscore") + "/8" );
                 board.resetScores(pres3.getEntry());
 
-                pl.getConfig().set("redscore", pl.getConfig().getInt("redscore") + 1);
+                pl.getConfig().set("redscore", pl.getConfig().getInt("redscore") + 0.5);
 
 
                 Score s3 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + pl.getConfig().getInt("redscore") + "/8" );
 
                 s3.setScore(3);
+
+                Team blue = board.getTeam("blue");
+                Team red = board.getTeam("red");
+
+                if (blue != null) {
+                    for (String entry : blue.getEntries()) {
+                        Player o = Bukkit.getPlayer(entry);
+                        if (o != null) {
+                            IChatBaseComponent chatTitle = IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + "Défaite" + "\",color:" + ChatColor.RED.name().toLowerCase() + "}");
+
+                            PacketPlayOutTitle title = new PacketPlayOutTitle(PacketPlayOutTitle.EnumTitleAction.TITLE, chatTitle);
+                            PacketPlayOutTitle length = new PacketPlayOutTitle(5, 100, 5);
+
+                            ((CraftPlayer) o).getHandle().playerConnection.sendPacket(title);
+                            ((CraftPlayer) o).getHandle().playerConnection.sendPacket(length);
+
+                            Location respawnloc = new Location(o.getWorld(), 0, 0, 0);
+                            o.teleport(respawnloc);
+                        }
+                    }
+                }
+                if (red != null) {
+                    for (String entry : red.getEntries()) {
+                        Player o = Bukkit.getPlayer(entry);
+                        if (o != null) {
+                            IChatBaseComponent chatTitle = IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + "Victoire" + "\",color:" + ChatColor.GREEN.name().toLowerCase() + "}");
+
+                            PacketPlayOutTitle title = new PacketPlayOutTitle(PacketPlayOutTitle.EnumTitleAction.TITLE, chatTitle);
+                            PacketPlayOutTitle length = new PacketPlayOutTitle(5, 100, 5);
+
+                            ((CraftPlayer) o).getHandle().playerConnection.sendPacket(title);
+                            ((CraftPlayer) o).getHandle().playerConnection.sendPacket(length);
+
+                            Location respawnloc = new Location(o.getWorld(), 0, 0, 0);
+                            o.teleport(respawnloc);
+                        }
+                    }
+                }
+
+                new BukkitRunnable() {
+                    @Override
+                    public void run() {
+                        org.bukkit.scoreboard.Scoreboard board = online.getScoreboard();
+                        Score pres3 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + pl.getConfig().getInt("redscore") + "/8" );
+                        board.resetScores(pres3.getEntry());
+
+                        Score pres4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + pl.getConfig().getInt("bluescore") + "/8" );
+                        board.resetScores(pres4.getEntry());
+
+                        pl.getConfig().set("redscore", 0);
+                        pl.getConfig().set("bluescore", 0);
+
+
+                        Score s3 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + pl.getConfig().getInt("redscore") + "/8" );
+                        s3.setScore(3);
+
+                        Score s4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + pl.getConfig().getInt("bluescore") + "/8" );
+                        s4.setScore(4);
+
+                        Location respawn = new Location(online.getWorld(), -1119, 68, -272);
+
+
+                        online.teleport(respawn);
+
+                    }
+                }.runTaskLater(pl, 200);
+
+
             } else {
 
                 org.bukkit.scoreboard.Scoreboard board = online.getScoreboard();
                 Score pres3 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + pl.getConfig().getInt("redscore") + "/8" );
                 board.resetScores(pres3.getEntry());
 
-                pl.getConfig().set("redscore", pl.getConfig().getInt("redscore") + 1);
+                pl.getConfig().set("redscore", pl.getConfig().getInt("redscore") + 0.5);
 
                 Score s3 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + pl.getConfig().getInt("redscore") + "/8" );
                 s3.setScore(3);
@@ -130,11 +219,76 @@ public class Scoreboard implements Listener {
                 Score pres4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + pl.getConfig().getInt("bluescore") + "/8" );
                 board.resetScores(pres4.getEntry());
 
-                pl.getConfig().set("bluescore", pl.getConfig().getInt("bluescore") + 1);
+                pl.getConfig().set("bluescore", pl.getConfig().getInt("bluescore") + 0.5);
 
                 Score s4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + pl.getConfig().getInt("bluescore") + "/8" );
 
                 s4.setScore(4);
+
+                Team blue = board.getTeam("blue");
+                Team red = board.getTeam("red");
+
+                if (blue != null) {
+                    for (String entry : blue.getEntries()) {
+                        Player o = Bukkit.getPlayer(entry);
+                        if (o != null) {
+                            IChatBaseComponent chatTitle = IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + "Victoire" + "\",color:" + ChatColor.GREEN.name().toLowerCase() + "}");
+
+                            PacketPlayOutTitle title = new PacketPlayOutTitle(PacketPlayOutTitle.EnumTitleAction.TITLE, chatTitle);
+                            PacketPlayOutTitle length = new PacketPlayOutTitle(5, 100, 5);
+
+                            ((CraftPlayer) o).getHandle().playerConnection.sendPacket(title);
+                            ((CraftPlayer) o).getHandle().playerConnection.sendPacket(length);
+
+                            Location respawnloc = new Location(o.getWorld(), 0, 0, 0);
+                            o.teleport(respawnloc);
+                        }
+                    }
+                }
+                if (red != null) {
+                    for (String entry : red.getEntries()) {
+                        Player o = Bukkit.getPlayer(entry);
+                        if (o != null) {
+                            IChatBaseComponent chatTitle = IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + "Défaite" + "\",color:" + ChatColor.RED.name().toLowerCase() + "}");
+
+                            PacketPlayOutTitle title = new PacketPlayOutTitle(PacketPlayOutTitle.EnumTitleAction.TITLE, chatTitle);
+                            PacketPlayOutTitle length = new PacketPlayOutTitle(5, 100, 5);
+
+                            ((CraftPlayer) o).getHandle().playerConnection.sendPacket(title);
+                            ((CraftPlayer) o).getHandle().playerConnection.sendPacket(length);
+                            Location respawnloc = new Location(o.getWorld(), 0, 0, 0);
+                            o.teleport(respawnloc);
+                        }
+                    }
+                }
+
+                new BukkitRunnable() {
+                    @Override
+                    public void run() {
+                        org.bukkit.scoreboard.Scoreboard board = online.getScoreboard();
+                        Score pres3 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + pl.getConfig().getInt("redscore") + "/8" );
+                        board.resetScores(pres3.getEntry());
+
+                        Score pres4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + pl.getConfig().getInt("bluescore") + "/8" );
+                        board.resetScores(pres4.getEntry());
+
+                        pl.getConfig().set("redscore", 0);
+                        pl.getConfig().set("bluescore", 0);
+
+
+                        Score s3 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + pl.getConfig().getInt("redscore") + "/8" );
+                        s3.setScore(3);
+
+                        Score s4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + pl.getConfig().getInt("bluescore") + "/8" );
+                        s4.setScore(4);
+
+                        Location respawn = new Location(online.getWorld(), -1119, 68, -272);
+
+                            online.teleport(respawn);
+
+                    }
+                }.runTaskLater(pl, 200);
+
             } else {
                 org.bukkit.scoreboard.Scoreboard board = online.getScoreboard();
                 Score pres4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + pl.getConfig().getInt("bluescore") + "/8" );
@@ -142,7 +296,7 @@ public class Scoreboard implements Listener {
                 board.resetScores(pres4.getEntry());
 
 
-                pl.getConfig().set("bluescore", pl.getConfig().getInt("bluescore") + 1);
+                pl.getConfig().set("bluescore", pl.getConfig().getInt("bluescore") + 0.5);
 
                 Score s4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + pl.getConfig().getInt("bluescore") + "/8" );
 
