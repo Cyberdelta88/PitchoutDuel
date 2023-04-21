@@ -91,7 +91,8 @@ public class Scoreboard implements Listener {
     public void updateScoreboardjoin() {
         for (Player online : Bukkit.getOnlinePlayers()) {
             org.bukkit.scoreboard.Scoreboard board = online.getScoreboard();
-            Score prescore = board.getObjective(DisplaySlot.SIDEBAR).getScore("Nombre de joueurs : " + Bukkit.getOnlinePlayers().size() - 1);
+            int i = Bukkit.getOnlinePlayers().size() - 1;
+            Score prescore = board.getObjective(DisplaySlot.SIDEBAR).getScore("Nombre de joueurs : " + i);
             board.resetScores(prescore.getEntry());
 
             Score score = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore("Nombre de joueurs : " + Bukkit.getOnlinePlayers().size());
@@ -102,7 +103,8 @@ public class Scoreboard implements Listener {
     public void updateScoreboardleave() {
         for (Player online : Bukkit.getOnlinePlayers()) {
             org.bukkit.scoreboard.Scoreboard board = online.getScoreboard();
-            Score prescore = board.getObjective(DisplaySlot.SIDEBAR).getScore("Nombre de joueurs : " + Bukkit.getOnlinePlayers().size() + 1);
+            int i = Bukkit.getOnlinePlayers().size() + 1;
+            Score prescore = board.getObjective(DisplaySlot.SIDEBAR).getScore("Nombre de joueurs : " + i);
             board.resetScores(prescore.getEntry());
 
             Score score = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore("Nombre de joueurs : " + Bukkit.getOnlinePlayers().size());
@@ -120,10 +122,10 @@ public class Scoreboard implements Listener {
                 Score pres3 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + pl.getConfig().getInt("redscore") + "/8" );
                 board.resetScores(pres3.getEntry());
 
-                pl.getConfig().set("redscore", pl.getConfig().getInt("redscore") + 0.5);
+                pl.getConfig().set("redscore", pl.getConfig().getInt("redscore") + 1);
+                int i = pl.getConfig().getInt("redscore") / 2;
 
-
-                Score s3 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + pl.getConfig().getInt("redscore") + "/8" );
+                Score s3 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + i + "/8" );
 
                 s3.setScore(3);
 
@@ -200,9 +202,10 @@ public class Scoreboard implements Listener {
                 Score pres3 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + pl.getConfig().getInt("redscore") + "/8" );
                 board.resetScores(pres3.getEntry());
 
-                pl.getConfig().set("redscore", pl.getConfig().getInt("redscore") + 0.5);
+                pl.getConfig().set("redscore", pl.getConfig().getInt("redscore") + 1);
+                int i = pl.getConfig().getInt("redscore") / 2;
 
-                Score s3 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + pl.getConfig().getInt("redscore") + "/8" );
+                Score s3 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + i + "/8" );
                 s3.setScore(3);
             }
 
@@ -219,9 +222,10 @@ public class Scoreboard implements Listener {
                 Score pres4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + pl.getConfig().getInt("bluescore") + "/8" );
                 board.resetScores(pres4.getEntry());
 
-                pl.getConfig().set("bluescore", pl.getConfig().getInt("bluescore") + 0.5);
+                pl.getConfig().set("bluescore", pl.getConfig().getInt("bluescore") + 1);
+                int i = pl.getConfig().getInt("bluescore") / 2;
 
-                Score s4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + pl.getConfig().getInt("bluescore") + "/8" );
+                Score s4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + i + "/8" );
 
                 s4.setScore(4);
 
@@ -296,9 +300,11 @@ public class Scoreboard implements Listener {
                 board.resetScores(pres4.getEntry());
 
 
-                pl.getConfig().set("bluescore", pl.getConfig().getInt("bluescore") + 0.5);
 
-                Score s4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + pl.getConfig().getInt("bluescore") + "/8" );
+                pl.getConfig().set("bluescore", pl.getConfig().getInt("bluescore") + 1);
+                int i = pl.getConfig().getInt("bluescore") / 2;
+
+                Score s4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + i + "/8" );
 
 
                 s4.setScore(4);

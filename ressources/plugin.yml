@@ -3,5 +3,8 @@ main: fr.cyberdelta88.IdkWars.Main
 author: cyberdelta88
 version: 0.1
 commands:
+  setrespawn:
+  setredspawn:
+  setbluespawn:
   start:
   team:

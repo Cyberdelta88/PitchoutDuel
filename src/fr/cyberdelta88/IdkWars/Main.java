@@ -1,5 +1,6 @@
 package fr.cyberdelta88.IdkWars;
 
+import fr.cyberdelta88.IdkWars.commands.Cmdsetredspawn;
 import fr.cyberdelta88.IdkWars.commands.Cmdstart;
 import fr.cyberdelta88.IdkWars.commands.Cmdteam;
 import fr.cyberdelta88.IdkWars.listeners.Clickguievent;
@@ -15,6 +16,7 @@ public class Main extends JavaPlugin {
         System.out.println("debug la");
         this.getCommand("team").setExecutor(new Cmdteam());
         this.getCommand("start").setExecutor(new Cmdstart());
+        this.getCommand("setredspawn").setExecutor(new Cmdsetredspawn());
 
         getServer().getPluginManager().registerEvents(new Clickguievent(), this);
         getServer().getPluginManager().registerEvents(new Deathevent(), this);

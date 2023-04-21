@@ -17,20 +17,26 @@ public class Cmdteam implements CommandExecutor {
         if (sender instanceof Player) {
             Player p = (Player) sender;
 
-            Inventory gui = Bukkit.createInventory(p, 9, ChatColor.GOLD + "TeamSelector");
+            Inventory gui = Bukkit.createInventory(p, 27, ChatColor.GOLD + "TeamSelector");
 
             ItemStack blue = new ItemStack(Material.WOOL, 1, (byte)11);
             ItemMeta bluemeta = blue.getItemMeta();
             bluemeta.setDisplayName("Join blue team");
             blue.setItemMeta(bluemeta);
 
-            ItemStack red = new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte)14);
+            ItemStack red = new ItemStack(Material.WOOL, 1, (byte)14);
             ItemMeta redmeta = red.getItemMeta();
             redmeta.setDisplayName("Join red team");
             red.setItemMeta(redmeta);
 
-            ItemStack[] guicontent = {blue,red};
-            gui.setContents(guicontent);
+            ItemStack empty = new ItemStack(Material.BARRIER, 1);
+            ItemMeta emptymeta = empty.getItemMeta();
+            emptymeta.setDisplayName("Empty the teams");
+            empty.setItemMeta(emptymeta);
+
+            gui.setItem(12, blue);
+            gui.setItem(14, red);
+            gui.setItem(26, empty);
 
             p.openInventory(gui);
         }

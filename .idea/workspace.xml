@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8aae9d01-d769-4e7b-9d73-aad72fec970b" name="Changes" comment="scoreboard patch">
+    <list default="true" id="8aae9d01-d769-4e7b-9d73-aad72fec970b" name="Changes" comment="patch scoreboard (number of player + scores)">
+      <change afterPath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/commands/Cmdsetredspawn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ressources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ressources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/commands/Cmdstart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/commands/Cmdstart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/listeners/Deathevent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/listeners/Deathevent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/commands/Cmdteam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/commands/Cmdteam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/listeners/Clickguievent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/listeners/Clickguievent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/listeners/Scoreboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/listeners/Scoreboard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,6 +29,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="f34e5b1a-d84a-418b-9824-f443552eeb22" />
+        <option name="url" value="https://github.com/Cyberdelta88/PitchoutDuel.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -75,12 +93,21 @@
       <option name="project" value="LOCAL" />
       <updated>1681491696523</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="patch scoreboard (number of player + scores)">
+      <created>1682010627773</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1682010627773</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="_" />
     <MESSAGE value="scoreboard patch" />
-    <option name="LAST_COMMIT_MESSAGE" value="scoreboard patch" />
+    <MESSAGE value="patch scoreboard (number of player = scores)" />
+    <MESSAGE value="patch scoreboard (number of player + scores)" />
+    <option name="LAST_COMMIT_MESSAGE" value="patch scoreboard (number of player + scores)" />
   </component>
 </project>

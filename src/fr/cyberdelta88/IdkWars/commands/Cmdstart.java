@@ -9,7 +9,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.enchantments.Enchantment;
-import org.bukkit.entity.Minecart;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -66,6 +65,7 @@ public class Cmdstart implements CommandExecutor {
 
                                     ((CraftPlayer) o).getHandle().playerConnection.sendPacket(title);
                                     ((CraftPlayer) o).getHandle().playerConnection.sendPacket(length);
+                                    o.playSound(o.getLocation(),Sound.NOTE_PIANO, 3.0F, 0.533F);
                                 }
                             }
                         }
@@ -80,6 +80,8 @@ public class Cmdstart implements CommandExecutor {
 
                                     ((CraftPlayer) o).getHandle().playerConnection.sendPacket(title);
                                     ((CraftPlayer) o).getHandle().playerConnection.sendPacket(length);
+
+                                    o.playSound(o.getLocation(),Sound.NOTE_PIANO, 3.0F, 0.533F);
                                 }
                             }
                         }

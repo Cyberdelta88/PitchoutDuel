@@ -1,31 +1,35 @@
 package fr.cyberdelta88.IdkWars.listeners;
 
+import fr.cyberdelta88.IdkWars.Main;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.scoreboard.Scoreboard;
+import org.bukkit.scoreboard.ScoreboardManager;
 import org.bukkit.scoreboard.Team;
 
 public class Clickguievent implements Listener {
 
-
+Plugin pl = Main.getPlugin(Main.class);
 
     @EventHandler
     public void guiclickevent(InventoryClickEvent e) {
         Player p = (Player) e.getWhoClicked();
 
-
-        Scoreboard sb = p.getScoreboard();
+        ScoreboardManager manager = Bukkit.getScoreboardManager();
+        org.bukkit.scoreboard.Scoreboard sb = manager.getMainScoreboard();
 
 
         if (e.getClickedInventory().getName().equalsIgnoreCase(ChatColor.GOLD + "TeamSelector")) {
             Team blue = sb.getTeam("blue");
             Team red = sb.getTeam("red");
-            switch (e.getCurrentItem().getType()) {
-                case WOOL :
+            switch (e.getCurrentItem().getItemMeta().getDisplayName()) {
+                case "Join blue team" :
                     p.closeInventory();
                     p.sendMessage("debug blue");
 
@@ -40,7 +44,7 @@ public class Clickguievent implements Listener {
 
                     break;
 
-                case STAINED_GLASS_PANE :
+                case "Join red team" :
                     p.closeInventory();
                     p.sendMessage("debug red");
 
@@ -52,6 +56,10 @@ public class Clickguievent implements Listener {
                         blue.removePlayer(p);
                     }
                     break;
+
+                case "Empty the teams" :
+                    p.closeInventory();
+                    p.sendMessage("Maybe it will work one day");
             }
             e.setCancelled(true);
         }
