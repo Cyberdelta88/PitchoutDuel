@@ -8,11 +8,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
-
-public class Cmdsetredspawn implements CommandExecutor {
-
-
-
+public class CmdBLueSpawn implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
@@ -24,16 +20,16 @@ public class Cmdsetredspawn implements CommandExecutor {
 
             if (args.length > 2) {
 
-                pl.getConfig().set("xred", args[0]);
-                pl.getConfig().set("yred", args[1]);
-                pl.getConfig().set("zred", args[2]);
+                pl.getConfig().set("xblue", args[0]);
+                pl.getConfig().set("yblue", args[1]);
+                pl.getConfig().set("zblue", args[2]);
 
 
-                String xcoords = pl.getConfig().getString("xred");
-                String ycoords = pl.getConfig().getString("yred");
-                String zcoords = pl.getConfig().getString("zred");
+                String xcoords = pl.getConfig().getString("xblue");
+                String ycoords = pl.getConfig().getString("yblue");
+                String zcoords = pl.getConfig().getString("zblue");
 
-                p.sendMessage(ChatColor.DARK_AQUA + "You set the red team spawn coordinates to x : " + xcoords +", y : " + ycoords + ", z : " + zcoords);
+                p.sendMessage(ChatColor.DARK_AQUA + "You set the blue team spawn coordinates to x : " + xcoords +", y : " + ycoords + ", z : " + zcoords);
 
 
             } else {
