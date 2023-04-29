@@ -8,7 +8,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
-
 public class Cmdsetredspawn implements CommandExecutor {
 
 
@@ -20,18 +19,39 @@ public class Cmdsetredspawn implements CommandExecutor {
 
         if (sender instanceof Player) {
 
+
+
             Player p = (Player) sender;
 
             if (args.length > 2) {
 
-                pl.getConfig().set("xred", args[0]);
-                pl.getConfig().set("yred", args[1]);
-                pl.getConfig().set("zred", args[2]);
+                try{
+                    int num = Integer.parseInt(args[0]);
+                    pl.getConfig().set("xred", num);
+                } catch (NumberFormatException e) {
+
+                }
+
+                try{
+                    int num = Integer.parseInt(args[1]);
+                    pl.getConfig().set("yred", num);;
+                } catch (NumberFormatException e) {
+
+                }
+
+                try{
+                    int num = Integer.parseInt(args[2]);
+                    pl.getConfig().set("zred", num);
+                } catch (NumberFormatException e) {
+
+                }
 
 
-                String xcoords = pl.getConfig().getString("xred");
-                String ycoords = pl.getConfig().getString("yred");
-                String zcoords = pl.getConfig().getString("zred");
+
+
+                int xcoords = pl.getConfig().getInt("xred");
+                int ycoords = pl.getConfig().getInt("yred");
+                int zcoords = pl.getConfig().getInt("zred");
 
                 p.sendMessage(ChatColor.DARK_AQUA + "You set the red team spawn coordinates to x : " + xcoords +", y : " + ycoords + ", z : " + zcoords);
 

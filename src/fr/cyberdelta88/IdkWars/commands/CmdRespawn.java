@@ -21,14 +21,31 @@ public class CmdRespawn implements CommandExecutor {
 
             if (args.length > 2) {
 
-                pl.getConfig().set("xrespawn", args[0]);
-                pl.getConfig().set("yrespawn", args[1]);
-                pl.getConfig().set("zrespawn", args[2]);
+                try{
+                    int num = Integer.parseInt(args[0]);
+                    pl.getConfig().set("xrespawn", num);
+                } catch (NumberFormatException e) {
+
+                }
+
+                try{
+                    int num = Integer.parseInt(args[1]);
+                    pl.getConfig().set("yrespawn", num);;
+                } catch (NumberFormatException e) {
+
+                }
+
+                try{
+                    int num = Integer.parseInt(args[2]);
+                    pl.getConfig().set("zrespawn", num);
+                } catch (NumberFormatException e) {
+
+                }
 
 
-                String xcoords = pl.getConfig().getString("xrespawn");
-                String ycoords = pl.getConfig().getString("yrespawn");
-                String zcoords = pl.getConfig().getString("zrespawn");
+                int xcoords = pl.getConfig().getInt("xrespawn");
+                int ycoords = pl.getConfig().getInt("yrespawn");
+                int zcoords = pl.getConfig().getInt("zrespawn");
 
                 p.sendMessage(ChatColor.DARK_AQUA + "You set the respawn coordinates to x : " + xcoords +", y : " + ycoords + ", z : " + zcoords);
 

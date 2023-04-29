@@ -20,14 +20,31 @@ public class CmdBLueSpawn implements CommandExecutor {
 
             if (args.length > 2) {
 
-                pl.getConfig().set("xblue", args[0]);
-                pl.getConfig().set("yblue", args[1]);
-                pl.getConfig().set("zblue", args[2]);
+                try{
+                    int num = Integer.parseInt(args[0]);
+                    pl.getConfig().set("xblue", num);
+                } catch (NumberFormatException e) {
+
+                }
+
+                try{
+                    int num = Integer.parseInt(args[1]);
+                    pl.getConfig().set("yblue", num);;
+                } catch (NumberFormatException e) {
+
+                }
+
+                try{
+                    int num = Integer.parseInt(args[2]);
+                    pl.getConfig().set("zblue", num);
+                } catch (NumberFormatException e) {
+
+                }
 
 
-                String xcoords = pl.getConfig().getString("xblue");
-                String ycoords = pl.getConfig().getString("yblue");
-                String zcoords = pl.getConfig().getString("zblue");
+                int xcoords = pl.getConfig().getInt("xblue");
+                int ycoords = pl.getConfig().getInt("yblue");
+                int zcoords = pl.getConfig().getInt("zblue");
 
                 p.sendMessage(ChatColor.DARK_AQUA + "You set the blue team spawn coordinates to x : " + xcoords +", y : " + ycoords + ", z : " + zcoords);
 
