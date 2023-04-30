@@ -6,6 +6,7 @@ import net.minecraft.server.v1_8_R3.PacketPlayOutTitle;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.Sound;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -144,8 +145,14 @@ public class Scoreboard implements Listener {
                             ((CraftPlayer) o).getHandle().playerConnection.sendPacket(title);
                             ((CraftPlayer) o).getHandle().playerConnection.sendPacket(length);
 
-                            Location respawnloc = new Location(o.getWorld(), 0, 0, 0);
+                            int xcoords = pl.getConfig().getInt("xblue");
+                            int ycoords = pl.getConfig().getInt("yblue");
+                            int zcoords = pl.getConfig().getInt("zblue");
+
+                            Location respawnloc = new Location(o.getWorld(), xcoords, ycoords, zcoords);
                             o.teleport(respawnloc);
+
+                            o.playSound(o.getLocation(), Sound.ENDERDRAGON_DEATH, 3.0F, 0.533F);
                         }
                     }
                 }
@@ -161,8 +168,14 @@ public class Scoreboard implements Listener {
                             ((CraftPlayer) o).getHandle().playerConnection.sendPacket(title);
                             ((CraftPlayer) o).getHandle().playerConnection.sendPacket(length);
 
-                            Location respawnloc = new Location(o.getWorld(), 0, 0, 0);
+                            int xcoords = pl.getConfig().getInt("xred");
+                            int ycoords = pl.getConfig().getInt("yred");
+                            int zcoords = pl.getConfig().getInt("zred");
+
+                            Location respawnloc = new Location(o.getWorld(), xcoords, ycoords, zcoords);
                             o.teleport(respawnloc);
+
+                            o.playSound(o.getLocation(),Sound.ENDERDRAGON_DEATH, 3.0F, 0.533F);
                         }
                     }
                 }
@@ -187,11 +200,15 @@ public class Scoreboard implements Listener {
                         Score s4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + pl.getConfig().getInt("bluescore") + "/8" );
                         s4.setScore(4);
 
-                        Location respawn = new Location(online.getWorld(), -1119, 68, -272);
+                        int xcoords = pl.getConfig().getInt("xrespawn");
+                        int ycoords = pl.getConfig().getInt("yrespawn");
+                        int zcoords = pl.getConfig().getInt("zrespawn");
 
+                        Location respawn = new Location(online.getWorld(), xcoords, ycoords, zcoords);
 
                         online.teleport(respawn);
 
+                        online.playSound(online.getLocation(),Sound.CAT_MEOW, 3.0F, 0.533F);
                     }
                 }.runTaskLater(pl, 200);
 
@@ -244,8 +261,14 @@ public class Scoreboard implements Listener {
                             ((CraftPlayer) o).getHandle().playerConnection.sendPacket(title);
                             ((CraftPlayer) o).getHandle().playerConnection.sendPacket(length);
 
-                            Location respawnloc = new Location(o.getWorld(), 0, 0, 0);
+                            int xcoords = pl.getConfig().getInt("xblue");
+                            int ycoords = pl.getConfig().getInt("yblue");
+                            int zcoords = pl.getConfig().getInt("zblue");
+
+                            Location respawnloc = new Location(o.getWorld(), xcoords, ycoords, zcoords);
                             o.teleport(respawnloc);
+
+                            o.playSound(o.getLocation(),Sound.ENDERDRAGON_DEATH, 3.0F, 0.533F);
                         }
                     }
                 }
@@ -260,8 +283,15 @@ public class Scoreboard implements Listener {
 
                             ((CraftPlayer) o).getHandle().playerConnection.sendPacket(title);
                             ((CraftPlayer) o).getHandle().playerConnection.sendPacket(length);
-                            Location respawnloc = new Location(o.getWorld(), 0, 0, 0);
+
+                            int xcoords = pl.getConfig().getInt("xred");
+                            int ycoords = pl.getConfig().getInt("yred");
+                            int zcoords = pl.getConfig().getInt("zred");
+
+                            Location respawnloc = new Location(o.getWorld(), xcoords, ycoords, zcoords);
                             o.teleport(respawnloc);
+
+                            o.playSound(o.getLocation(),Sound.ENDERDRAGON_DEATH, 3.0F, 0.533F);
                         }
                     }
                 }
@@ -286,9 +316,15 @@ public class Scoreboard implements Listener {
                         Score s4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + pl.getConfig().getInt("bluescore") + "/8" );
                         s4.setScore(4);
 
-                        Location respawn = new Location(online.getWorld(), -1119, 68, -272);
+                        int xcoords = pl.getConfig().getInt("xrespawn");
+                        int ycoords = pl.getConfig().getInt("yrespawn");
+                        int zcoords = pl.getConfig().getInt("zrespawn");
 
-                            online.teleport(respawn);
+                        Location respawn = new Location(online.getWorld(), xcoords, ycoords, zcoords);
+
+                        online.teleport(respawn);
+
+                        online.playSound(online.getLocation(),Sound.CAT_MEOW, 3.0F, 0.533F);
 
                     }
                 }.runTaskLater(pl, 200);

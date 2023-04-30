@@ -1,5 +1,6 @@
 package fr.cyberdelta88.IdkWars.listeners;
 
+import fr.cyberdelta88.IdkWars.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.EntityType;
@@ -7,6 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scoreboard.Scoreboard;
@@ -17,6 +19,7 @@ public class Deathevent implements Listener {
     @EventHandler
     public void deathevent(EntityDamageEvent e) {
 
+        Plugin pl = Main.getPlugin(Main.class);
 
         if (e.getEntityType() == EntityType.PLAYER) {
 
@@ -32,10 +35,15 @@ public class Deathevent implements Listener {
 
             if (e.getCause().equals(EntityDamageEvent.DamageCause.LAVA)){
                 if (blue != null) {
-                    Location loc_blue = new Location(p.getWorld(),  -233, 105, 85);
                     for (String entry : blue.getEntries()) { //non-player entities can be on teams
                         Player o = Bukkit.getPlayer(entry);
                         if (o != null) {
+
+                            int xcoords = pl.getConfig().getInt("xblue");
+                            int ycoords = pl.getConfig().getInt("yblue");
+                            int zcoords = pl.getConfig().getInt("zblue");
+
+                            Location loc_blue = new Location(o.getWorld(), xcoords, ycoords, zcoords);
                             o.teleport(loc_blue);
                             o.setHealth(20);
                             o.setScoreboard(sb);
@@ -46,10 +54,15 @@ public class Deathevent implements Listener {
                     }
                 }
                 if (red != null) {
-                    Location loc_red = new Location(p.getWorld(), -233, 105, 106);
                     for (String entry : red.getEntries()) {
                         Player o = Bukkit.getPlayer(entry);
                         if (o != null) {
+
+                            int xcoords = pl.getConfig().getInt("xred");
+                            int ycoords = pl.getConfig().getInt("yred");
+                            int zcoords = pl.getConfig().getInt("zred");
+
+                            Location loc_red = new Location(o.getWorld(), xcoords, ycoords, zcoords);
                             o.teleport(loc_red);
                             o.setHealth(20);
                             o.setScoreboard(sb);

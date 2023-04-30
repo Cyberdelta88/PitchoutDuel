@@ -13,13 +13,19 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.Team;
 
 public class Cmdstart implements CommandExecutor {
+
+    Plugin pl = Main.getPlugin(Main.class);
+
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+
+
         if (sender instanceof Player) {
             Player p = (Player) sender;
 
@@ -91,10 +97,14 @@ public class Cmdstart implements CommandExecutor {
                     } else {
 
                         if (blue != null) {
-                            Location loc_blue = new Location(p.getWorld(), -233, 105, 85);
-                            for (String entry : blue.getEntries()) { //non-player entities can be on teams
+                            for (String entry : blue.getEntries()) {
                                 Player o = Bukkit.getPlayer(entry);
                                 if (o != null) {
+                                    int xcoords = pl.getConfig().getInt("xblue");
+                                    int ycoords = pl.getConfig().getInt("yblue");
+                                    int zcoords = pl.getConfig().getInt("zblue");
+
+                                    Location loc_blue = new Location(o.getWorld(), xcoords, ycoords, zcoords);
                                     o.teleport(loc_blue);
                                     o.setGameMode(GameMode.ADVENTURE);
                                     o.setScoreboard(sb);
@@ -108,10 +118,14 @@ public class Cmdstart implements CommandExecutor {
                             }
                         }
                         if (red != null) {
-                            Location loc_red = new Location(p.getWorld(), -233, 105, 106);
                             for (String entry : red.getEntries()) {
                                 Player o = Bukkit.getPlayer(entry);
                                 if (o != null) {
+                                    int xcoords = pl.getConfig().getInt("xred");
+                                    int ycoords = pl.getConfig().getInt("yred");
+                                    int zcoords = pl.getConfig().getInt("zred");
+
+                                    Location loc_red = new Location(o.getWorld(), xcoords, ycoords, zcoords);
                                     o.teleport(loc_red);
                                     o.setGameMode(GameMode.ADVENTURE);
                                     o.setScoreboard(sb);

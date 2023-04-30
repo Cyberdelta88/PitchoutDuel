@@ -4,12 +4,12 @@ import fr.cyberdelta88.IdkWars.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.plugin.Plugin;
-import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
 import org.bukkit.scoreboard.Team;
 
@@ -61,7 +61,10 @@ Plugin pl = Main.getPlugin(Main.class);
                     p.closeInventory();
                     p.sendMessage("Maybe it will work one day");
             }
+
             e.setCancelled(true);
+            p.playSound(p.getLocation(), Sound.NOTE_STICKS, 3.0F, 0.533F);
+
         }
         p.setScoreboard(sb);
     }
