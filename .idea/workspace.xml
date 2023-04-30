@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8aae9d01-d769-4e7b-9d73-aad72fec970b" name="Changes" comment="adding commands to allow the operators to change the coordinates of the differents spawn place patch">
+    <list default="true" id="8aae9d01-d769-4e7b-9d73-aad72fec970b" name="Changes" comment="adding sound effect">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/commands/Cmdstart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/commands/Cmdstart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/listeners/Clickguievent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/listeners/Clickguievent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/listeners/Deathevent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/listeners/Deathevent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/listeners/Scoreboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/cyberdelta88/IdkWars/listeners/Scoreboard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -117,7 +114,21 @@
       <option name="project" value="LOCAL" />
       <updated>1682803458883</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="implementing the new coordinates system">
+      <created>1682886697682</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1682886697682</updated>
+    </task>
+    <task id="LOCAL-00008" summary="adding sound effect">
+      <created>1682886795030</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1682886795030</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -127,6 +138,8 @@
     <MESSAGE value="patch scoreboard (number of player + scores)" />
     <MESSAGE value="adding commands to allow the operators to change the coordinates of the differents spawn place" />
     <MESSAGE value="adding commands to allow the operators to change the coordinates of the differents spawn place patch" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding commands to allow the operators to change the coordinates of the differents spawn place patch" />
+    <MESSAGE value="implementing the new coordinates system" />
+    <MESSAGE value="adding sound effect" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding sound effect" />
   </component>
 </project>

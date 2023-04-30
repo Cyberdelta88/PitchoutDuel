@@ -65,10 +65,10 @@ public class Scoreboard implements Listener {
         org.bukkit.scoreboard.Scoreboard board = manager.getMainScoreboard();
 
         Team blue = board.registerNewTeam("blue");
-        blue.setPrefix(ChatColor.BLUE + "xssx");
+        blue.setPrefix(ChatColor.BLUE + " ");
 
         Team red = board.registerNewTeam("red");
-        red.setPrefix(ChatColor.RED + "sxxs");
+        red.setPrefix(ChatColor.RED + " ");
 
 
         Objective obj = board.registerNewObjective("Stats", "Dummy;");
