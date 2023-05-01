@@ -118,16 +118,19 @@ public class Scoreboard implements Listener {
     public void uptateScoreboardgamered() {
         for (Player online : Bukkit.getOnlinePlayers()) {
 
-            if (pl.getConfig().getInt("redscore") >= 7) {
+            int p = pl.getConfig().getInt("redscore") / 2;
+
+            if (p > 7) {
 
                 org.bukkit.scoreboard.Scoreboard board = online.getScoreboard();
-                Score pres3 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + pl.getConfig().getInt("redscore") + "/8" );
+                int i = pl.getConfig().getInt("redscore") / 2;
+                Score pres3 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + i + "/8" );
                 board.resetScores(pres3.getEntry());
 
                 pl.getConfig().set("redscore", pl.getConfig().getInt("redscore") + 1);
-                int i = pl.getConfig().getInt("redscore") / 2;
+                int i2 = pl.getConfig().getInt("redscore") / 2;
 
-                Score s3 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + i + "/8" );
+                Score s3 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + i2 + "/8" );
 
                 s3.setScore(3);
 
@@ -185,10 +188,12 @@ public class Scoreboard implements Listener {
                     @Override
                     public void run() {
                         org.bukkit.scoreboard.Scoreboard board = online.getScoreboard();
-                        Score pres3 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + pl.getConfig().getInt("redscore") + "/8" );
+                        int i = pl.getConfig().getInt("redscore") / 2;
+                        Score pres3 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + i + "/8" );
                         board.resetScores(pres3.getEntry());
 
-                        Score pres4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + pl.getConfig().getInt("bluescore") + "/8" );
+                        int i2 = pl.getConfig().getInt("bluescore") / 2;
+                        Score pres4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + i2 + "/8" );
                         board.resetScores(pres4.getEntry());
 
                         pl.getConfig().set("redscore", 0);
@@ -217,13 +222,15 @@ public class Scoreboard implements Listener {
             } else {
 
                 org.bukkit.scoreboard.Scoreboard board = online.getScoreboard();
-                Score pres3 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + pl.getConfig().getInt("redscore") + "/8" );
+                int i = pl.getConfig().getInt("redscore") / 2;
+
+                Score pres3 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + i + "/8" );
                 board.resetScores(pres3.getEntry());
 
                 pl.getConfig().set("redscore", pl.getConfig().getInt("redscore") + 1);
-                int i = pl.getConfig().getInt("redscore") / 2;
+                int i9 = pl.getConfig().getInt("redscore") / 2;
 
-                Score s3 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + i + "/8" );
+                Score s3 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + i9 + "/8" );
                 s3.setScore(3);
             }
 
@@ -234,15 +241,16 @@ public class Scoreboard implements Listener {
 
     public void uptateScoreboardgameblue() {
         for (Player online : Bukkit.getOnlinePlayers()) {
-
-            if (pl.getConfig().getInt("bluescore") >= 7) {
+            int p = pl.getConfig().getInt("bluescore") / 2;
+            if (p > 7) {
                 org.bukkit.scoreboard.Scoreboard board = online.getScoreboard();
-                Score pres4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + pl.getConfig().getInt("bluescore") + "/8" );
+
+                int i2 = pl.getConfig().getInt("bluescore") / 2;
+                Score pres4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + i2 + "/8" );
                 board.resetScores(pres4.getEntry());
 
                 pl.getConfig().set("bluescore", pl.getConfig().getInt("bluescore") + 1);
                 int i = pl.getConfig().getInt("bluescore") / 2;
-
                 Score s4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + i + "/8" );
 
                 s4.setScore(4);
@@ -301,10 +309,12 @@ public class Scoreboard implements Listener {
                     @Override
                     public void run() {
                         org.bukkit.scoreboard.Scoreboard board = online.getScoreboard();
-                        Score pres3 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + pl.getConfig().getInt("redscore") + "/8" );
+                        int i = pl.getConfig().getInt("redscore") / 2;
+                        Score pres3 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + i + "/8" );
                         board.resetScores(pres3.getEntry());
 
-                        Score pres4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + pl.getConfig().getInt("bluescore") + "/8" );
+                        int i2 = pl.getConfig().getInt("bluescore") / 2;
+                        Score pres4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + i2 + "/8" );
                         board.resetScores(pres4.getEntry());
 
                         pl.getConfig().set("redscore", 0);
@@ -332,16 +342,16 @@ public class Scoreboard implements Listener {
 
             } else {
                 org.bukkit.scoreboard.Scoreboard board = online.getScoreboard();
-                Score pres4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + pl.getConfig().getInt("bluescore") + "/8" );
-
+                int i = pl.getConfig().getInt("bluescore") / 2;
+                Score pres4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + i + "/8" );
                 board.resetScores(pres4.getEntry());
 
 
 
                 pl.getConfig().set("bluescore", pl.getConfig().getInt("bluescore") + 1);
-                int i = pl.getConfig().getInt("bluescore") / 2;
+                int i2 = pl.getConfig().getInt("bluescore") / 2;
 
-                Score s4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + i + "/8" );
+                Score s4 = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + i2 + "/8" );
 
 
                 s4.setScore(4);
