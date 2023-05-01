@@ -13,8 +13,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.*;
@@ -48,18 +46,6 @@ public class Scoreboard implements Listener {
     }
 
 
-
-    @EventHandler
-    public void onPlayerJoinn(PlayerJoinEvent e) {
-        createScoreboard(e.getPlayer());
-        updateScoreboardjoin();
-    }
-
-    @EventHandler
-    public void onPlayerQuit(PlayerQuitEvent e) {
-        updateScoreboardleave();
-    }
-
     public void createScoreboard(Player p) {
         ScoreboardManager manager = Bukkit.getScoreboardManager();
         org.bukkit.scoreboard.Scoreboard board = manager.getMainScoreboard();
@@ -75,13 +61,10 @@ public class Scoreboard implements Listener {
         obj.setDisplayName(ChatColor.LIGHT_PURPLE + "Pitchout Duel");
 
         obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-        Score score = obj.getScore("Nombre de joueurs : " + Bukkit.getOnlinePlayers().size());
-        Score s2 = obj.getScore("");
         Score s3 = obj.getScore(ChatColor.RED + "Red : " + ChatColor.WHITE + pl.getConfig().getInt("redscore") + "/8" );
         Score s4 = obj.getScore(ChatColor.BLUE + "Blue : " + ChatColor.WHITE + pl.getConfig().getInt("bluescore") + "/8" );
 
-        score.setScore(1);
-        s2.setScore(2);
+
         s3.setScore(3);
         s4.setScore(4);
 
@@ -90,37 +73,13 @@ public class Scoreboard implements Listener {
 
     }
 
-    public void updateScoreboardjoin() {
-        for (Player online : Bukkit.getOnlinePlayers()) {
-            org.bukkit.scoreboard.Scoreboard board = online.getScoreboard();
-            int i = Bukkit.getOnlinePlayers().size() - 1;
-            Score prescore = board.getObjective(DisplaySlot.SIDEBAR).getScore("Nombre de joueurs : " + i);
-            board.resetScores(prescore.getEntry());
-
-            Score score = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore("Nombre de joueurs : " + Bukkit.getOnlinePlayers().size());
-            score.setScore(1);
-        }
-    }
-
-    public void updateScoreboardleave() {
-        for (Player online : Bukkit.getOnlinePlayers()) {
-            org.bukkit.scoreboard.Scoreboard board = online.getScoreboard();
-            int i = Bukkit.getOnlinePlayers().size() + 1;
-            Score prescore = board.getObjective(DisplaySlot.SIDEBAR).getScore("Nombre de joueurs : " + i);
-            board.resetScores(prescore.getEntry());
-
-            Score score = online.getScoreboard().getObjective(DisplaySlot.SIDEBAR).getScore("Nombre de joueurs : " + Bukkit.getOnlinePlayers().size());
-            score.setScore(1);
-        }
-    }
-
 
     public void uptateScoreboardgamered() {
         for (Player online : Bukkit.getOnlinePlayers()) {
 
             int p = pl.getConfig().getInt("redscore") / 2;
 
-            if (p > 7) {
+            if (p >= 7) {
 
                 org.bukkit.scoreboard.Scoreboard board = online.getScoreboard();
                 int i = pl.getConfig().getInt("redscore") / 2;
@@ -242,7 +201,7 @@ public class Scoreboard implements Listener {
     public void uptateScoreboardgameblue() {
         for (Player online : Bukkit.getOnlinePlayers()) {
             int p = pl.getConfig().getInt("bluescore") / 2;
-            if (p > 7) {
+            if (p >= 7) {
                 org.bukkit.scoreboard.Scoreboard board = online.getScoreboard();
 
                 int i2 = pl.getConfig().getInt("bluescore") / 2;
