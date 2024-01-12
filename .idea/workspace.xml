@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8aae9d01-d769-4e7b-9d73-aad72fec970b" name="Changes" comment="Scoreboard fix #2">
+    <list default="true" id="8aae9d01-d769-4e7b-9d73-aad72fec970b" name="Changes" comment="discord change">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IdkWars.iml" beforeDir="false" afterPath="$PROJECT_DIR$/IdkWars.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682973621496</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="discord change">
+      <created>1683030222945</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1683030222945</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -164,6 +173,7 @@
     <MESSAGE value="prefix fix" />
     <MESSAGE value="Scoreboard fix" />
     <MESSAGE value="Scoreboard fix #2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Scoreboard fix #2" />
+    <MESSAGE value="discord change" />
+    <option name="LAST_COMMIT_MESSAGE" value="discord change" />
   </component>
 </project>
